@@ -8,10 +8,10 @@ public:
         int cursum = 0, leftsum = sum;
         for(int i = 0; i < nums.size(); i++){
             cursum += nums[i];
-            leftsum -= nums[i];
-            if((leftsum + nums[i]) == cursum){
+            if(leftsum == cursum){
                 return i;
             }
+            leftsum -= nums[i];
         }
         return -1;
     }
