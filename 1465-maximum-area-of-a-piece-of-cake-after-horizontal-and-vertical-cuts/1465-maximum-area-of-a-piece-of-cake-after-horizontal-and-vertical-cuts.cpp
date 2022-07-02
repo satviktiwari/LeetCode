@@ -1,18 +1,11 @@
 class Solution {
 public:
-    int maxArea(int h, int w, vector<int>& horizontalCuts, vector<int>& verticalCuts) {
+    int maxArea(int h, int w, vector<int>& v1, vector<int>& v2) {
         int mod = 1e9+7;
-        vector<int>v1, v2;
         v1.push_back(0);
         v2.push_back(0);
         v1.push_back(h);
         v2.push_back(w);
-        for(int i = 0; i < horizontalCuts.size(); i++){
-            v1.push_back(horizontalCuts[i]);
-        }
-        for(int i = 0; i < verticalCuts.size(); i++){
-            v2.push_back(verticalCuts[i]);
-        }
         sort(v1.begin(), v1.end());
         sort(v2.begin(), v2.end());
         int mx1 = 0, mx2 = 0;
