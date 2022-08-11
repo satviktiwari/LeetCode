@@ -12,27 +12,24 @@
 class Solution {
 public:
     
-    void inorder(TreeNode* root, vector<int>&v){
+    void solve(TreeNode* root, vector<int>&v){
         if(!root){
             return;
         }
-        inorder(root->left, v);
+        solve(root->left, v);
         v.push_back(root->val);
-        inorder(root->right, v);
+        solve(root->right, v);
     }
     
     bool isValidBST(TreeNode* root) {
         vector<int>v;
-        inorder(root, v);
-        int x = v[0];
+        solve(root, v);
         for(int i = 1; i < v.size(); i++){
-            if(v[i] <= x){
+            if(v[i] <= v[i-1]){
                 return false;
-            }
-            else{
-                x = v[i];
             }
         }
         return true;
     }
+    
 };
