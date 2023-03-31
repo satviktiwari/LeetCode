@@ -2,14 +2,11 @@ class Solution {
 public:
     int ways(vector<string>& pizza, int k) {
         vector<vector<vector<int> > > dp(k, vector<vector<int> >(pizza.size(), vector<int>(pizza[0].size(), 0)));
-        // initialize first layer to all 1
         for (int i = 0; i < pizza.size(); ++i) {
             for (int j = 0; j < pizza[0].size(); ++j) {
                 dp[0][i][j] = 1;
             }
         }
-        
-        // given index (i, j), return the number of apples in the bottom and right region
         vector<vector<int> > appleNum(pizza.size() + 1, vector<int>(pizza[0].size() + 1, 0));
         for (int i = pizza.size() - 1; i >= 0; --i) {
             for (int j = pizza[0].size() - 1; j >= 0; --j) {
